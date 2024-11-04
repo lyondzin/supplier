@@ -10,9 +10,9 @@ class Pinjam_barangSeeder extends Seeder
 {
     public function run(): void
     {
-       DB::table('user')->insert([
+       DB::table('pinjam_barang')->insert([
         [
-            'id_peminjam' => 1,
+            'id_pinjam' => 1,
             'peminjam' => 'Nathan', 
             'tgl_pinjam' => now(), 
             'id_barang' => 1, 
@@ -21,6 +21,7 @@ class Pinjam_barangSeeder extends Seeder
             'kondisi' => 'Baik'
         ],
         [
+            'id_pinjam' => 2,
             'peminjam' => 'Epan', 
             'tgl_pinjam' => now(), 
             'id_barang' => 2, 
@@ -29,6 +30,7 @@ class Pinjam_barangSeeder extends Seeder
             'kondisi' => 'Baik'
         ],
         [
+            'id_pinjam' => 3,
             'peminjam' => 'penli', 
             'tgl_pinjam' => now(), 
             'id_barang' => 3, 

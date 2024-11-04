@@ -12,6 +12,7 @@ class Barang_masukSeeder extends Seeder
     {
         DB::table('barang_masuk')->insert([
             [
+                'id_barang_masuk' => 1,
                 'id_barang' => 1, 
                 'nama_barang' => 'bembeng', 
                 'tgl_masuk' => now(), 
@@ -19,6 +20,7 @@ class Barang_masukSeeder extends Seeder
                 'id_supplier' => 2
             ],
             [
+                'id_barang_masuk' => 2,
                 'id_barang' => 2, 
                 'nama_barang' => 'aqua', 
                 'tgl_masuk' => now(), 
@@ -26,6 +28,7 @@ class Barang_masukSeeder extends Seeder
                 'id_supplier' => 1
             ],
             [
+                'id_barang_masuk' => 3,
                 'id_barang' => 3, 
                 'nama_barang' => 'yupi', 
                 'tgl_masuk' => now(), 

@@ -12,6 +12,7 @@ class BarangSeeder extends Seeder
     {
         DB::table('barang')->insert([
             [
+                'id_barang' => 1,
                 'nama_barang' => 'bembeng', 
                 'spesifikasi' => 'bagus bet enak', 
                 'lokasi' => 'jakarta', 
@@ -19,6 +20,7 @@ class BarangSeeder extends Seeder
                 'sumber_dana' => 'kenalan'
             ],
             [
+                'id_barang' => 2,
                 'nama_barang' => 'aqua', 
                 'spesifikasi' => 'segar', 
                 'lokasi' => 'cengkareng', 
@@ -26,6 +28,7 @@ class BarangSeeder extends Seeder
                 'sumber_dana' => 'batu'
             ],
             [
+                'id_barang' => 3,
                 'nama_barang' => 'yupi', 
                 'spesifikasi' => 'manis', 
                 'lokasi' => 'bogor', 
