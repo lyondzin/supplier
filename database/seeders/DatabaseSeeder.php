@@ -2,19 +2,20 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
     {
-        $this->call([
-            SupplierSeeder::class,
-            BarangSeeder::class,
-            Barang_MasukSeeder::class,
-            Pinjam_BarangSeeder::class,
-            Barang_KeluarSeeder::class,
-        ]);
+        $this->call(BarangSeeder::class);
+        $this->call(Barang_keluarSeeder::class);
+        $this->call(SupplierSeeder::class);
+        $this->call(Barang_masukSeeder::class);
+        $this->call(pinjam_barangSeeder::class);
     }
 }
