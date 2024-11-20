@@ -19,17 +19,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('barang_masuk', function (Blueprint $table) {
-            $table->bigIncrements('id_barang_masuk');
-            $table->unsignedBigInteger('id_barang');
-            $table->string('nama_barang');
-            $table->date('tgl_masuk');
-            $table->integer('jml_barang');
-            $table->unsignedBigInteger('id_supplier'); // Correct spelling and reference
-            $table->foreign('id_supplier')->references('id_supplier')->on('suppliers')->onDelete('cascade');
-            $table->timestamps();
-        });
-
         Schema::create('barang', function (Blueprint $table) {
             $table->bigIncrements('id_barang');
             $table->string('nama_barang')->unique();
@@ -39,6 +28,19 @@ return new class extends Migration
             $table->string('sumber_dana');
             $table->timestamps();
         });
+        
+        Schema::create('barang_masuk', function (Blueprint $table) {
+            $table->bigIncrements('id_barang_masuk');
+            $table->unsignedBigInteger('id_barang');
+            $table->foreign('id_barang')->references('id_barang')->on('barang')->onDelete('cascade');
+            $table->date('tgl_masuk');
+            $table->integer('jml_barang');
+            $table->unsignedBigInteger('id_supplier'); // Correct spelling and reference
+            $table->foreign('id_supplier')->references('id_supplier')->on('suppliers')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+       
         
         Schema::create('pinjam_barang', function (Blueprint $table) {
             $table->bigIncrements('id_pinjam');

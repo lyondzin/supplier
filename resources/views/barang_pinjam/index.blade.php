@@ -8,8 +8,8 @@
 
   <div class="w-full flex justify-between items-center mb-3 mt-1 pl-3">
       <div>
-          <h3 class="text-lg font-semibold text-slate-800">Data barang</h3>
-          <p class="text-slate-500">A list of all barang..</p>
+          <h3 class="text-lg font-semibold text-slate-800">Data barang pinjam</h3>
+          <p class="text-slate-500">A list of all barang pinjam..</p>
       </div>
       <div class="ml-3">
           <div class="w-full max-w-sm min-w-[200px] relative">
@@ -40,36 +40,46 @@
                No
            </p>
            </th>
-           <th class="p-4 border-b border-slate-200 bg-slate-50">
-            <p class="text-sm font-normal leading-none text-slate-500">
-                ID barang
-            </p>
-            </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
-              Nama barang
+              ID barang pinjam
           </p>
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
-              Spesifikasi
+              peminjam
           </p>
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
-              lokasi
+              Tanggal pinjam
           </p>
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
-              kondisi
+              ID barang
           </p>
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
             <p class="text-sm font-normal leading-none text-slate-500">
-                sumber dana
+                nama barang
             </p>
             </th>
+          <th class="p-4 border-b border-slate-200 bg-slate-50">
+            <p class="text-sm font-normal leading-none text-slate-500">
+                jumlah barang
+            </p>
+            </th>
+            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                    tanggal kembali
+                </p>
+                </th>
+                <th class="p-4 border-b border-slate-200 bg-slate-50">
+                    <p class="text-sm font-normal leading-none text-slate-500">
+                        kondisi
+                    </p>
+                    </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
               Edit
@@ -83,40 +93,46 @@
       </tr>
       </thead>
       <tbody>
-       @foreach ($barang as $barang)
+       @foreach ($barangPinjam as $barang_pinjam)
       <tr class="hover:bg-slate-50 border-b border-slate-200">
           <td class="p-4 py-5">
            <p class="text-sm text-slate-500">{{ $loop->iteration }}</p>
           </td>
           <td class="p-4 py-5">
-            <p class="text-sm text-slate-500">{{ $barang->id_barang }}</p>
+          <p class="text-sm text-slate-500">{{ $barang_pinjam->id_pinjam }}</p>
+          </td>
+          <td class="p-4 py-5">
+          <p class="text-sm text-slate-500">{{ $barang_pinjam->peminjam }}</p>
+          </td>
+          <td class="p-4 py-5">
+            <p class="text-sm text-slate-500">{{ $barang_pinjam->tgl_pinjam }}</p>
             </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->nama_barang }}</p>
+          <p class="text-sm text-slate-500">{{ $barang_pinjam->id_barang }}</p>
           </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->spesifikasi }}</p>
-          </td>
+            <p class="text-sm text-slate-500">{{ $barang_pinjam->barang->nama_barang }}</p>
+            </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->lokasi }}</p>
-          </td>
+            <p class="text-sm text-slate-500">{{ $barang_pinjam->jml_barang }}</p>
+            </td>
           <td class="p-4 py-5">
-            <p class="text-sm text-slate-500">{{ $barang->kondisi }}</p>
+            <p class="text-sm text-slate-500">{{ $barang_pinjam->tgl_kembali }}</p>
             </td>
             <td class="p-4 py-5">
-                <p class="text-sm text-slate-500">{{ $barang->sumber_dana }}</p>
+                <p class="text-sm text-slate-500">{{ $barang_pinjam->kondisi }}</p>
                 </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500"><a href="{{ route('barang.edit', $barang->id_barang) }}" class="font-medium text-blue-600 hover:text-blue-800">Edit</a></p>
+          <p class="text-sm text-slate-500"><a href="{{ route('barang_pinjam.edit', $barang_pinjam->id_pinjam) }}" class="font-medium text-blue-600 hover:text-blue-800">Edit</a></p>
           </td>
           <td class="p-4 py-5">
            <p class="text-sm text-slate-500">
-               <a href="{{ route('barang.destroy', $barang->id_barang) }}"
+               <a href="{{ route('barang_pinjam.destroy', $barang_pinjam->id_pinjam) }}"
                    class="font-medium text-blue-600 hover:text-blue-800"
-                   onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this barang?')) { document.getElementById('delete-form-{{ $barang->id_barang }}').submit(); }">
+                   onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this barang masuk?')) { document.getElementById('delete-form-{{ $barang_pinjam->id_pinjam }}').submit(); }">
                     Hapus
                 </a>
-                <form id="delete-form-{{ $barang->id_barang }}" action="{{ route('barang.destroy', $barang->id_barang) }}" method="POST" style="display: none;">
+                <form id="delete-form-{{ $barang_pinjam->id_pinjam }}" action="{{ route('barang_pinjam.destroy', $barang_pinjam->id_pinjam) }}" method="POST" style="display: none;">
                    @csrf
                    @method('DELETE')
                </form>
@@ -153,7 +169,7 @@
 
 <div class="relative flex flex-col w-full h-full justify-between items-center mt-5">
    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded items-center">
-    <a href="{{ route('barang.create') }}">
+    <a href="{{ route('barang_pinjam.create') }}">
        Add data barang here..
    </a>
    </button>

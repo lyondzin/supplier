@@ -8,8 +8,8 @@
 
   <div class="w-full flex justify-between items-center mb-3 mt-1 pl-3">
       <div>
-          <h3 class="text-lg font-semibold text-slate-800">Data barang</h3>
-          <p class="text-slate-500">A list of all barang..</p>
+          <h3 class="text-lg font-semibold text-slate-800">Data barang keluar</h3>
+          <p class="text-slate-500">A list of all barang keluar..</p>
       </div>
       <div class="ml-3">
           <div class="w-full max-w-sm min-w-[200px] relative">
@@ -40,11 +40,16 @@
                No
            </p>
            </th>
-           <th class="p-4 border-b border-slate-200 bg-slate-50">
-            <p class="text-sm font-normal leading-none text-slate-500">
-                ID barang
-            </p>
-            </th>
+          <th class="p-4 border-b border-slate-200 bg-slate-50">
+          <p class="text-sm font-normal leading-none text-slate-500">
+              ID barang keluar
+          </p>
+          </th>
+          <th class="p-4 border-b border-slate-200 bg-slate-50">
+          <p class="text-sm font-normal leading-none text-slate-500">
+              ID barang
+          </p>
+          </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
               Nama barang
@@ -52,22 +57,17 @@
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
           <p class="text-sm font-normal leading-none text-slate-500">
-              Spesifikasi
-          </p>
-          </th>
-          <th class="p-4 border-b border-slate-200 bg-slate-50">
-          <p class="text-sm font-normal leading-none text-slate-500">
-              lokasi
-          </p>
-          </th>
-          <th class="p-4 border-b border-slate-200 bg-slate-50">
-          <p class="text-sm font-normal leading-none text-slate-500">
-              kondisi
+              Tanggal keluar
           </p>
           </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
             <p class="text-sm font-normal leading-none text-slate-500">
-                sumber dana
+                jumlah keluar
+            </p>
+            </th>
+          <th class="p-4 border-b border-slate-200 bg-slate-50">
+            <p class="text-sm font-normal leading-none text-slate-500">
+                penerima
             </p>
             </th>
           <th class="p-4 border-b border-slate-200 bg-slate-50">
@@ -83,40 +83,40 @@
       </tr>
       </thead>
       <tbody>
-       @foreach ($barang as $barang)
+       @foreach ($barangKeluar as $barang_keluar)
       <tr class="hover:bg-slate-50 border-b border-slate-200">
           <td class="p-4 py-5">
            <p class="text-sm text-slate-500">{{ $loop->iteration }}</p>
           </td>
           <td class="p-4 py-5">
-            <p class="text-sm text-slate-500">{{ $barang->id_barang }}</p>
+          <p class="text-sm text-slate-500">{{ $barang_keluar->id_barang_keluar }}</p>
+          </td>
+          <td class="p-4 py-5">
+          <p class="text-sm text-slate-500">{{ $barang_keluar->id_barang }}</p>
+          </td>
+          <td class="p-4 py-5">
+            <p class="text-sm text-slate-500">{{ $barang_keluar->barang->nama_barang }}</p>
             </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->nama_barang }}</p>
+          <p class="text-sm text-slate-500">{{ $barang_keluar->tgl_keluar }}</p>
           </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->spesifikasi }}</p>
-          </td>
-          <td class="p-4 py-5">
-          <p class="text-sm text-slate-500">{{ $barang->lokasi }}</p>
-          </td>
-          <td class="p-4 py-5">
-            <p class="text-sm text-slate-500">{{ $barang->kondisi }}</p>
+            <p class="text-sm text-slate-500">{{ $barang_keluar->jml_keluar }}</p>
             </td>
-            <td class="p-4 py-5">
-                <p class="text-sm text-slate-500">{{ $barang->sumber_dana }}</p>
-                </td>
           <td class="p-4 py-5">
-          <p class="text-sm text-slate-500"><a href="{{ route('barang.edit', $barang->id_barang) }}" class="font-medium text-blue-600 hover:text-blue-800">Edit</a></p>
+            <p class="text-sm text-slate-500">{{ $barang_keluar->penerima }}</p>
+            </td>
+          <td class="p-4 py-5">
+          <p class="text-sm text-slate-500"><a href="{{ route('barang_keluar.edit', $barang_keluar->id_barang_keluar) }}" class="font-medium text-blue-600 hover:text-blue-800">Edit</a></p>
           </td>
           <td class="p-4 py-5">
            <p class="text-sm text-slate-500">
-               <a href="{{ route('barang.destroy', $barang->id_barang) }}"
+               <a href="{{ route('barang_keluar.destroy', $barang_keluar->id_barang_keluar) }}"
                    class="font-medium text-blue-600 hover:text-blue-800"
-                   onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this barang?')) { document.getElementById('delete-form-{{ $barang->id_barang }}').submit(); }">
+                   onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this barang masuk?')) { document.getElementById('delete-form-{{ $barang_keluar->id_barang_keluar }}').submit(); }">
                     Hapus
                 </a>
-                <form id="delete-form-{{ $barang->id_barang }}" action="{{ route('barang.destroy', $barang->id_barang) }}" method="POST" style="display: none;">
+                <form id="delete-form-{{ $barang_keluar->id_barang_keluar }}" action="{{ route('barang_keluar.destroy', $barang_keluar->id_barang_keluar) }}" method="POST" style="display: none;">
                    @csrf
                    @method('DELETE')
                </form>
@@ -153,7 +153,7 @@
 
 <div class="relative flex flex-col w-full h-full justify-between items-center mt-5">
    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded items-center">
-    <a href="{{ route('barang.create') }}">
+    <a href="{{ route('barang_keluar.create') }}">
        Add data barang here..
    </a>
    </button>
