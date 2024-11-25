@@ -6,6 +6,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\barang_masukController;
 use App\Http\Controllers\barang_keluarController;
 use App\Http\Controllers\barang_pinjamController;
+use App\Http\Controllers\ProfileController;
 
 // Public Route (Welcome or Home Page)
 Route::get('/', function () {

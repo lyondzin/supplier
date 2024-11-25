@@ -96,7 +96,7 @@
           <td class="p-4 py-5">
           <p class="text-sm text-slate-500">{{ $barang_masuk->id_barang_masuk }}</p>
           </td>
-          <td class="p-4 py-5">
+          <td class="p-4 py-5">6
           <p class="text-sm text-slate-500">{{ $barang_masuk->id_barang }}</p>
           </td>
           <td class="p-4 py-5">
@@ -109,7 +109,7 @@
             <p class="text-sm text-slate-500">{{ $barang_masuk->jml_barang }}</p>
             </td>
           <td class="p-4 py-5">
-            <p class="text-sm text-slate-500">{{ $barang_masuk->id_supplier }}</p>
+            <p class="text-sm text-slate-500">{{ $barang_masuk->suplier->id_supplier }}</p>
             </td>
             <td class="p-4 py-5">
                 <p class="text-sm text-slate-500">{{ $barang_masuk->suplier->nama_supplier }}</p>
