@@ -52,7 +52,7 @@
        <div class="mt-5 col-span-full gap-y-8">
          <label for="tgl_keluar" class="block text-sm/6 font-medium text-gray-900">Tanggal keluar</label>
          <div class="mt-2">
-           <textarea id="tgl_keluar" name="tgl_keluar" rows="3" value="{{ old('tgl_keluar') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+           <input type="date" id="tgl_keluar" name="tgl_keluar" rows="3" value="{{ old('tgl_keluar') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
          </div>
        </div>
        <div class="mt-5 col-span-full gap-y-8">

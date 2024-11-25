@@ -10,12 +10,9 @@ class DatabaseSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        $this->call(BarangSeeder::class);
-        $this->call(Barang_keluarSeeder::class);
-        $this->call(SupplierSeeder::class);
-        $this->call(Barang_masukSeeder::class);
-        $this->call(pinjam_barangSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
+    
 }

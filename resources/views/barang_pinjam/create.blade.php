@@ -52,7 +52,7 @@
        <div class="mt-5 col-span-full gap-y-8">
          <label for="tgl_pinjam" class="block text-sm/6 font-medium text-gray-900">Tanggal pinjam</label>
          <div class="mt-2">
-           <textarea id="tgl_pinjam" name="tgl_pinjam" rows="3" value="{{ old('tgl_pinjam') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+           <input type="date" id="tgl_pinjam" name="tgl_pinjam" rows="3" value="{{ old('tgl_pinjam') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
          </div>
        </div>
        <div class="mt-5 col-span-full gap-y-8">
@@ -69,7 +69,7 @@
           <div class="mt-5 col-span-full gap-y-8">
             <label for="tgl_kembali" class="block text-sm/6 font-medium text-gray-900">tanggal kembali</label>
               <div class="mt-2">
-                <input id="tgl_kembali" name="tgl_kembali" type="text" autocomplete="tgl_kembali" value="{{ old('tgl_kembali') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                <input type="date" id="tgl_kembali" name="tgl_kembali" type="text" autocomplete="tgl_kembali" value="{{ old('tgl_kembali') }}" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
               </div>
               <div class="mt-5 col-span-full gap-y-8">
                 <label for="kondisi" class="block text-sm/6 font-medium text-gray-900">kondisi</label>
